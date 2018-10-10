@@ -1,0 +1,83 @@
+/*面包屑*/
+.breadcrumb {
+	color: #606266;
+	margin-bottom: 20px;
+}
+.breadcrumb > span {
+	vertical-align: middle;
+}
+.breadcrumb .el-breadcrumb {
+	display: inline-block;
+	vertical-align: middle;
+}
+/*浮动*/
+.fl { float: left; }
+.fr { float: right; }
+/*清除浮动*/
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+/* 对齐 */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+/*// 上下左右常规边距*/
+.m-t { margin-top: 20px; }
+.m-b { margin-bottom: 20px; }
+.m-l { margin-left: 20px; }
+.m-r { margin-right: 20px; }
+
+.p-t { padding-top: 20px; }
+.p-b { padding-bottom: 20px; }
+.p-l { padding-left: 20px; }
+.p-r { padding-right: 20px; }
+
+.hr-line-dashed {
+    border-top: 1px dashed #e7eaec;
+    color: #fff;
+    background-color: #fff;
+    height: 1px;
+    margin: 20px 0;
+}
+.el-pagination .el-pagination__jump .el-input__inner {
+    box-shadow: none;
+}
+.sidebar.isCollapse + .content {
+    left: 64px;
+}
+
+
+
+/*
+*
+*
+element重写 reset-element
+*
+*
+*/
+
+/*修复safari下input的placeholder不居中的问题*/
+.el-range-editor--medium > * {
+    vertical-align: top;
+}
+/*safari下时间区间选择器错位问题*/
+.el-date-editor {
+    vertical-align: top;
+}
+/*safari下时间区间选择器图标不显示问题*/
+.el-date-editor .el-range__icon {
+    float: initial;
+}
+/*修复safari下input的placeholder不居中的问题*/
+.el-input--medium .el-input__inner {
+    line-height: 1px;
+}
+/*safari 下 radio tab 切换间距问题*/
+.el-radio-button, .el-radio-button__inner {
+    float: left;
+}
