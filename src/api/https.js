@@ -10,13 +10,30 @@ Vue.prototype.$https = axios;
 let baseURL = process.env.NODE_ENV == 'development' ? 'https://lbsts.zhichecn.com/web' : 'https://lbsdev.zhichecn.com:9999';
 
 
+let needLoadingRequestCount = 0
+let loadingAxios; // 接口请求loading
+export function showFullScreenLoading() {
+	if (needLoadingRequestCount === 0) {
+		loadingAxios = Loading.service({ target: document.querySelector('.content') ? document.querySelector('.content') : document.body,fullscreen: true, text: '努力加载中', spinner: 'el-icon-loading', background: 'raba(0, 0, 0, 0.3)' }); // 创建loading
+	}
+	needLoadingRequestCount++
+}
+
+export function tryHideFullScreenLoading() {
+	if (needLoadingRequestCount <= 0) return
+	needLoadingRequestCount--
+	if (needLoadingRequestCount === 0) {
+		loadingAxios.close(); // 关闭loading
+	}
+}
+
+
 const service = axios.create({
 	baseURL: baseURL,
 	timeout: 5000, // 请求超时时间设置
 	withCredentials:true, //应许携带cookie
 })
 
-let loadingAxios; // 接口请求loading
 // 添加请求拦截器
 service.interceptors.request.use(
     (config) => {
@@ -25,8 +42,7 @@ service.interceptors.request.use(
 		if (store.getters.token) {
 			config.headers['X-Authority-Token'] = getToken() // 让每个请求携带token-- ['X-Token']为自定义key 请根据实际情况自行修改
 		}
-        loadingAxios = Loading.service({ fullscreen: true, text: '努力加载中', spinner: 'el-icon-loading', background: 'raba(0, 0, 0, 0.3)' }); // 创建loading
-        
+        showFullScreenLoading()
         return config;
     },
     (error) => {
@@ -38,16 +54,15 @@ service.interceptors.request.use(
 // 添加响应拦截器
 service.interceptors.response.use(
     (response) => {
-
 		if (response.headers['x-authority-retoken']) { // 后台返回重置的token
 			setToken(response.headers['x-authority-retoken']);
 		}
-        loadingAxios.close(); // 关闭loading
+      tryHideFullScreenLoading();
         // 对响应数据做些什么
         return response;
     },
     (error) => {
-        loadingAxios.close(); // 关闭loading
+      tryHideFullScreenLoading();
         // 对响应错误做些什么
         if (error.response) {
             if (error.response.status === 401) {
@@ -76,9 +91,9 @@ export default {
 							closeOnClickModal: false,
 							type: 'warning'
 						}).then(() => {
-							router.replace({
-			                    path: '/Login'
-			                })
+							store.dispatch('FedLogOut').then(() => {
+								location.reload(); // 为了重新实例化vue-router对象 避免bug
+							});
 						}).catch(() => {
 
 						});

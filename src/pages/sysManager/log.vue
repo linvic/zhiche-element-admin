@@ -1,12 +1,5 @@
 <template>
 	<div>
-		<div class="breadcrumb">
-			<span>您当前位置：</span>
-			<el-breadcrumb separator-class="el-icon-arrow-right" label="1">
-				<el-breadcrumb-item>系统设置</el-breadcrumb-item>
-				<el-breadcrumb-item>系统日志</el-breadcrumb-item>
-			</el-breadcrumb>
-		</div>
 		
 		<el-card>
             <div slot="header" class="clearfix">
@@ -26,7 +19,7 @@
 						:picker-options="pickerOptions">
 					</el-date-picker>
 					<el-input v-model="filterForm.account" placeholder="请输入账号" style="width: 300px;" suffix-icon="el-icon-search"></el-input>
-					<el-button type="primary" @click="onSubmit" style="margin-left: 20px">搜索</el-button>
+					<el-button type="primary" @click="" style="margin-left: 20px">搜索</el-button>
 				</el-form>
             </div>
 			<el-table :data="tableData" style="width: 100%" border v-loading="loading">

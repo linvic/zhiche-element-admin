@@ -1,13 +1,5 @@
 <template>
 	<div>
-
-		<div class="breadcrumb">
-			<span>您当前位置：</span>
-			<el-breadcrumb separator-class="el-icon-arrow-right" label="1">
-				<el-breadcrumb-item>系统设置</el-breadcrumb-item>
-				<el-breadcrumb-item>店铺管理</el-breadcrumb-item>
-			</el-breadcrumb>
-		</div>
 		<el-card>
 			<el-form ref="filterForm" :model="filterForm" label-width="100px">
 				<el-form-item label="店铺名称：">

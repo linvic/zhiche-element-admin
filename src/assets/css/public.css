@@ -1,15 +1,4 @@
-/*面包屑*/
-.breadcrumb {
-	color: #606266;
-	margin-bottom: 20px;
-}
-.breadcrumb > span {
-	vertical-align: middle;
-}
-.breadcrumb .el-breadcrumb {
-	display: inline-block;
-	vertical-align: middle;
-}
+
 /*浮动*/
 .fl { float: left; }
 .fr { float: right; }
@@ -31,6 +20,7 @@
 .m-b { margin-bottom: 20px; }
 .m-l { margin-left: 20px; }
 .m-r { margin-right: 20px; }
+.m-b-10 { margin-bottom: 10px; }
 
 .p-t { padding-top: 20px; }
 .p-b { padding-bottom: 20px; }
@@ -44,14 +34,29 @@
     height: 1px;
     margin: 20px 0;
 }
-.el-pagination .el-pagination__jump .el-input__inner {
-    box-shadow: none;
+.main {
+    padding: 20px;
 }
-.sidebar.isCollapse + .content {
-    left: 64px;
+.el-table th {
+    color: rgba(0,0,0,0.85);
 }
-
-
+.el-table .cell{
+    text-align: center;
+}
+.el-table .operate .cell{
+    text-align: left;
+}
+.el-table .el-table__header .operate .cell{
+    text-align: center;
+}
+.form-title {
+    width:72px;
+    height: 18px;
+    font-size: 18px;
+    color: rgba(0,0,0);
+    line-height: 18px;
+    margin-bottom: 20px;font-family:PingFangSC-Medium;
+}
 
 /*
 *
@@ -80,4 +85,92 @@ element重写 reset-element
 /*safari 下 radio tab 切换间距问题*/
 .el-radio-button, .el-radio-button__inner {
     float: left;
+}
+/*重置分页背景色*/
+.el-pagination.is-background .btn-next, .el-pagination.is-background .btn-prev, .el-pagination.is-background .el-pager li {
+    background-color: #fff;
+}
+/*去除分页中input阴影*/
+.el-pagination .el-pagination__jump .el-input__inner {
+    box-shadow: none;
+}
+/*重置按钮底色*/
+.el-button--primary.is-plain,.el-button--success.is-plain,.el-button--info.is-plain,.el-button--warning.is-plain,.el-button--danger.is-plain {
+    background: transparent;
+}
+.el-button--small {
+    font-size: 14px;
+    padding: 8px 14px;
+}
+.el-button--mini {
+    padding: 7px 17px;
+}
+.el-input--medium .el-input__icon{
+    cursor: pointer;
+}
+.el-collapse-item__header{
+    padding-left: 20px;
+    font-weight: bold;
+}
+.el-collapse-item__arrow{
+    float: left;
+}
+.el-collapse-item{
+    margin-top: 20px;
+}
+/*重置卡片圆角*/
+.el-card {
+    border-radius: 0;
+}
+
+.content .el-select--medium{
+    width: 100%;
+}
+.content .el-cascader{
+    width: 100%;
+}
+.content .el-form-item__content{
+    margin-left: 175px;
+}
+.content .el-select--small{
+    width: 100%;
+}
+.add_company .el-select--small{
+    width: 60%;
+}
+.add_company .el-checkbox{
+    width: 30%;
+    min-width: 100px;
+    margin-left: 0;
+}
+.add_company .el-select--small .el-input--small{
+    width: 100%;
+}
+.add_company .el-input--small{
+    width: 60%;
+}
+.el-switch__core{
+    height: 36px !important;
+    border-radius: 20px;
+}
+.el-switch__core:after{
+    width: 28px;
+    height: 28px;
+    top:3px;
+    left: 3px;
+}
+.el-switch.is-checked .el-switch__core::after{
+    margin-left: -30px;
+}
+.type-Equipment .el-checkbox{
+    margin-left: 20px;
+    width: 25%;
+    margin-top: 10px;
+}
+.el-dialog{
+    min-width: 300px;
+    overflow: auto;
+}
+.el-menu--popup{
+    background: #001529;
 }

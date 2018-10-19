@@ -1,13 +1,5 @@
 <template>
-	<div>
-
-		<div class="breadcrumb">
-			<span>您当前位置：</span>
-			<el-breadcrumb separator-class="el-icon-arrow-right" label="1">
-				<el-breadcrumb-item>车辆管理</el-breadcrumb-item>
-				<el-breadcrumb-item>车辆信息</el-breadcrumb-item>
-			</el-breadcrumb>
-		</div>
+	<div class="main">
 		<el-card>
 			<div slot="header" class="clearfix">
 				<el-radio-group v-model="saleStatus">
@@ -165,8 +157,8 @@
 </template>
 
 <script>
-import carAudit from './carAudit'
-import carEditor from './carEditor'
+import carAudit from './bind_info'
+import carEditor from './device_info'
 
 import api from '@/api/carManager'
 export default {
@@ -202,7 +194,11 @@ export default {
 		}
 	},
 	created() {
+		console.log('created');
 		this.getDataList();
+	},
+	mounted() {
+		console.log('mounted');
 	},
 	watch: {
 	},

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import user from './modules/user'
 import permission from './modules/permission'
+import tag from './modules/tag'
 
 Vue.use(Vuex)
 
@@ -26,12 +27,17 @@ export default new Vuex.Store({
 	},
 	modules: {
 		user,
-		permission
+		permission,
+		tag
 	},
 	getters: {
 		token: state => state.user.token,
+    sidebar: state => state.tag.sidebar,
+    device: state => state.tag.device,
 		status: state => state.user.status,
 		roles: state => state.user.roles,
-		addRouters: state => state.permission.addRouters
+    permission_routers: state => state.permission.routers,
+		addRouters: state => state.permission.addRouters,
+		taglist: state => state.tag.taglist
 	}
 })

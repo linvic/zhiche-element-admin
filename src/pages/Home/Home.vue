@@ -1,32 +1,26 @@
 <template>
-	<div>
-		<div class="breadcrumb">
-			<span>您当前位置：</span>
-			<el-breadcrumb separator-class="el-icon-arrow-right" label="1">
-				<el-breadcrumb-item>首页</el-breadcrumb-item>
-			</el-breadcrumb>
-		</div>
+	<div class="main">
 		<div class="card">
 			<div class="card_title">车辆概况</div>
 			<el-row class="row-bg">
 				<el-col :span="8">
 					<div class="grid-content border-right">
 						<h3>已上架</h3>
-						<p>1896</p>
+						<countTo class="count-num" :startVal='0' :endVal='1896' :duration='3000'></countTo>
 					</div>
 				</el-col>
 				<el-col :span="8">
 
 					<div class="grid-content border-right">
 						<h3>已下架</h3>
-						<p>196</p>
+						<countTo class="count-num" :startVal='0' :endVal='196' :duration='3000'></countTo>
 					</div>
 				</el-col>
 				<el-col :span="8">
 					
 					<div class="grid-content">
 						<h3>车辆总数</h3>
-						<p>11896</p>
+						<countTo class="count-num" :startVal='0' :endVal='11896' :duration='3000'></countTo>
 					</div>
 				</el-col>
 			</el-row>
@@ -37,27 +31,27 @@
 				<el-col :span="6">
 					<div class="grid-content border-right">
 						<h3>今日新增</h3>
-						<p>14</p>
+						<countTo class="count-num" :startVal='0' :endVal='14' :duration='3000'></countTo>
 					</div>
 				</el-col>
 				<el-col :span="6">
 					<div class="grid-content border-right">
 						<h3>昨日新增</h3>
-						<p>19</p>
+						<countTo class="count-num" :startVal='0' :endVal='19' :duration='3000'></countTo>
 					</div>
 				</el-col>
 				<el-col :span="6">
 
 					<div class="grid-content border-right">
 						<h3>客户总数</h3>
-						<p>19</p>
+						<countTo class="count-num" :startVal='0' :endVal='19' :duration='3000'></countTo>
 					</div>
 				</el-col>
 				<el-col :span="6">
 					
 					<div class="grid-content">
 						<h3>日活量</h3>
-						<p>196</p>
+						<countTo class="count-num" :startVal='0' :endVal='196' :duration='3000'></countTo>
 					</div>
 				</el-col>
 			</el-row>
@@ -68,19 +62,19 @@
 				<el-col :span="8">
 					<div class="grid-content border-right">
 						<h3>今日新增</h3>
-						<p>11</p>
+						<countTo class="count-num" :startVal='0' :endVal='11' :duration='3000'></countTo>
 					</div>
 				</el-col>
 				<el-col :span="8">
 					<div class="grid-content border-right">
 						<h3>昨日新增</h3>
-						<p>13</p>
+						<countTo class="count-num" :startVal='0' :endVal='13' :duration='3000'></countTo>
 					</div>
 				</el-col>
 				<el-col :span="8">
 					<div class="grid-content border-right">
 						<h3>销售总数</h3>
-						<p>99</p>
+						<countTo class="count-num" :startVal='0' :endVal='199' :duration='3000'></countTo>
 					</div>
 				</el-col>
 
@@ -128,9 +122,11 @@
 
 <script>
 	import VeHistogram from 'v-charts/lib/histogram'
+	import CountTo from 'vue-count-to'
 	export default {
         components: {
-            VeHistogram
+            VeHistogram,
+            CountTo
         },
 		data() {
 			this.extend = {
@@ -212,5 +208,8 @@
 	.grid-content p {
 		color: #000;
 		font-size: 14px;
+	}
+	.count-num {
+		font-size: 22px;
 	}
 </style>

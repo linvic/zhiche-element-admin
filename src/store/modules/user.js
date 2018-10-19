@@ -1,4 +1,4 @@
-import { getToken, setToken, removeToken } from '@/config/auth'
+import { getToken, setToken, removeToken, removeTagList } from '@/config/auth'
 import api from '@/api/base'
 
 const user = {
@@ -30,6 +30,8 @@ const user = {
 						commit('SET_TOKEN', response.data.token);
 						
 						setToken(response.data.token);
+						// 清除taglist
+						removeTagList()
 					}
 					resolve(response)
 				}).catch(error => {
